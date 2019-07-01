@@ -32,9 +32,6 @@ class L5SwaggerServiceProvider extends ServiceProvider
         \Route::group(['namespace' => 'L5Swagger'], function ($router) {
             require __DIR__.'/routes.php';
         });
-
-        //Register commands
-        $this->commands([GenerateDocsCommand::class]);
     }
 
     /**
@@ -47,9 +44,6 @@ class L5SwaggerServiceProvider extends ServiceProvider
         $configPath = __DIR__.'/../config/l5-swagger.php';
         $this->mergeConfigFrom($configPath, 'l5-swagger');
 
-        $this->app->singleton('command.l5-swagger.generate', function () {
-            return new GenerateDocsCommand();
-        });
     }
 
     /**
