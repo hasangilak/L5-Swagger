@@ -44,18 +44,6 @@ class SwaggerController extends BaseController
      */
     public function api()
     {
-        if (config('l5-swagger.generate_always')) {
-            Generator::generateDocs();
-        }
-
-        if ($proxy = config('l5-swagger.proxy')) {
-            if (! is_array($proxy)) {
-                $proxy = [$proxy];
-            }
-            Request::setTrustedProxies($proxy, \Illuminate\Http\Request::HEADER_X_FORWARDED_ALL);
-        }
-
-        // Need the / at the end to avoid CORS errors on Homestead systems.
         $response = Response::make(
             view('l5-swagger::index', [
                 'secure' => Request::secure(),
