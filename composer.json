@@ -1,6 +1,6 @@
 {
   "name": "hasangilak/l5-swagger",
-  "description": "Swagger integration to Laravel 5",
+  "description": "Swagger UI integration to Laravel 5",
   "keywords": [
     "laravel",
     "swagger",
